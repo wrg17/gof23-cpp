@@ -1,6 +1,16 @@
 # Prerequisites
 *.d
 
+# IDE
+.idea/
+.vscode/
+
+# Build
+cmake-build-*/
+build/
+vcpkg/
+compile_commands.json
+
 # Compiled Object files
 *.slo
 *.lo
