@@ -71,8 +71,12 @@ fi
 ensure_vcpkg
 
 cmake -S "${REPO_ROOT}" -B "${BUILD_DIR}" \
+  -G Ninja \
   -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
   -DCMAKE_TOOLCHAIN_FILE="${TOOLCHAIN_FILE}" \
+  -DCMAKE_C_COMPILER=/usr/local/opt/llvm/bin/clang \
+  -DCMAKE_CXX_COMPILER=/usr/local/opt/llvm/bin/clang++ \
+  -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0 \
   -DVCPKG_FEATURE_FLAGS=manifests \
   -DVCPKG_TARGET_TRIPLET=x64-osx \
   -DBUILD_TESTING=ON
