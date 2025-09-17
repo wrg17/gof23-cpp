@@ -49,3 +49,6 @@ compile_commands.json
 
 # debug information files
 *.dwo
+
+# misc
+design_patterns.pdf
