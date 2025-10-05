@@ -6,6 +6,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_compile_options(-Wall -Wextra -Wpedantic)
 
+add_compile_options(-fno-exceptions)
+
 include(CTest)
 
 find_package(absl CONFIG REQUIRED)

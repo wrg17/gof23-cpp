@@ -73,12 +73,12 @@ TEST(FulfillFlow, ProducesPastryAndLogsRude) {
 
   testing::internal::CaptureStdout();
 
-  auto pastry = kCornerBakery.Fulfill("Muffin", kIsCustomerPolite);
+  const auto kPastry = kCornerBakery.Fulfill("Muffin", kIsCustomerPolite);
 
   const std::string kOut = testing::internal::GetCapturedStdout();
 
-  ASSERT_NE(pastry, nullptr);
-  EXPECT_EQ(pastry->Describe(),
+  ASSERT_NE(kPastry, nullptr);
+  EXPECT_EQ(kPastry->Describe(),
             "A muffin test pastry made by chef Alice at Corner Bakery");
 
   EXPECT_NE(kOut.find("Firing up the oven!"), std::string::npos);
