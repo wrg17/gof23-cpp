@@ -33,7 +33,8 @@ foreach (child ${CHILD_DIRS})
     if (EXISTS "${dir}/main.cpp")
         add_executable(${child} ${SRCS})
         target_include_directories(${child} PRIVATE "${dir}")
-        target_link_libraries(${child} PRIVATE absl::strings absl::str_format absl::status absl::statusor)
+        target_link_libraries(${child} PRIVATE absl::strings absl::str_format absl::status absl::statusor absl::hash absl::flat_hash_map absl::raw_hash_set
+        )
         list(APPEND ALL_EXES ${child})
     endif ()
 
@@ -44,7 +45,8 @@ foreach (child ${CHILD_DIRS})
             list(FILTER NOMAIN_SRCS EXCLUDE REGEX ".*/main\\.cpp$")
             add_executable(${child}_test ${NOMAIN_SRCS} ${TESTS})
             target_include_directories(${child}_test PRIVATE "${dir}")
-            target_link_libraries(${child}_test PRIVATE GTest::gtest_main GTest::gmock absl::strings absl::str_format absl::status absl::statusor)
+            target_link_libraries(${child}_test PRIVATE GTest::gtest_main GTest::gmock absl::strings absl::str_format absl::status absl::statusor absl::hash absl::flat_hash_map absl::raw_hash_set
+            )
             gtest_discover_tests(${child}_test
                     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
                     DISCOVERY_TIMEOUT 60)
